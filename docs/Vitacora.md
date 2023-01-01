@@ -166,5 +166,100 @@ Como es una funcion solo debemos acceder a sus parametros y atributos sin el pre
 Todo lo demas se conserva igual.
 
 # Sesion 3
+Creamos las carpetas: components, models, routes, pages, dentro de pages las carpetas auth, home y 404, dentro de components las carpetas containers y pures, dentro de pures la carpeta forms
 
+Dentro de models creamos la clase task.class.js y levels.enum.js:
+```
+// levels.enum.js
 
+export const LEVELS = {
+  NORMAL: "normal",
+  URGENT: "urgent",
+  BLOCKING: "blocking",
+};
+```
+
+```
+// task.class.js
+
+import { LEVELS } from "./levels.enum";
+
+export class Task {
+  name = "";
+  description = "";
+  completed = false;
+  level = LEVELS.URGENT;
+
+  constructor(name, description, completed, level) {
+    this.name = name;
+    this.description = description;
+    this.completed = completed;
+    this.level = level;
+  }
+}
+```
+
+Creamos el componente TaskComponente el cual renderiza una tarea y TaskList el cual renderizara una lista de componentes de tipo TaskComponent.
+
+```
+// TaskComponent.jsx
+
+import React from "react";
+import PropTypes from "prop-types";
+import { Task } from "../../models/task.class";
+
+const TaskComponent = ({ task }) => {
+  return (
+    <div>
+      <h2>Nombre: {task.name}</h2>
+      <h3>Descripción: {task.description}</h3>
+      <h3>Estatus: {task.completed ? "Completada" : "Pendiente"}</h3>
+      <h3>Nivel: {task.level}</h3>
+    </div>
+  );
+};
+
+TaskComponent.propTypes = {
+  task: PropTypes.instanceOf(Task),
+};
+
+export default TaskComponent;
+```
+
+En PropType indicamos que la props la cual sera una sola llamada task debe ser una instancia de la clase Task. Ademas de instroducir el renderizado condicional usando un operador ternario (condicion ? valor a retornar si es true :valor a retornar si es false) para mostrar el valor de la tarea completada.
+
+```
+//TaskList.jsx
+
+import React from "react";
+import { LEVELS } from "../../models/levels.enum";
+import { Task } from "../../models/task.class";
+import TaskComponent from "../pures/TaskComponent";
+
+const TaskList = () => {
+  const defaultTask = new Task(
+    "Tarea de prueba",
+    "Descripción de prueba",
+    true,
+    LEVELS.URGENT
+  );
+//   const defaultTask2 = new Task(
+//     "Tarea de prueba 2",
+//     "Descripción de prueba 2",
+//     false,
+//     LEVELS.URGENT
+//   );
+
+  return (
+    <div>
+      <h1>Lista de tareas:</h1>
+      {/* TODO: Aplicar for/map para renderizar una lista */}
+      <TaskComponent task={defaultTask}></TaskComponent>
+    </div>
+  );
+};
+
+export default TaskList;
+```
+
+En TaskList le pasamos al componente TaskComponente una prop task la cual es una instancia de la clase Task.
