@@ -263,3 +263,6 @@ export default TaskList;
 ```
 
 En TaskList le pasamos al componente TaskComponente una prop task la cual es una instancia de la clase Task.
+
+# Sesion 4.1
+Hablamos sobre nuevos hooks y se implementaron ejemplo en la carpeta hooks, useState para controlar el estado, useEffect para ejecutar un snippet de codigo cuando se modifica el estado general del componente o cuando se modifica uan parte especifica del estado, useRef para poder obtener los datos de una etiqueta HTML y useContext para pasar un contexto a componentes de orden inferior desde un padre.

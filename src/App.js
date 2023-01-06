@@ -1,17 +1,15 @@
 import logo from "./logo.svg";
 import "./App.css";
-// import GreetingClass from "./components/pures/GreetingClass";
-// import GreetingFunctional from "./components/pures/GreetingFunctional";
-import TaskList from "./components/containers/TaskList";
+import Ejemplo4 from "./hooks/Ejemplo4";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        {/* <GreetingClass name="Christos"></GreetingClass> */}
-        {/* <GreetingFunctional name="Christust"></GreetingFunctional> */}
-        <TaskList></TaskList>
+        <Ejemplo4 nombre="Christos">
+          <h3>Contenido en props children</h3>
+        </Ejemplo4>
       </header>
     </div>
   );
