@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { Task } from "../../models/task.class";
 
 const TaskComponent = ({ task }) => {
+  useEffect(() => {
+    console.log("Renderiza Task");
+    return () => {
+      console.log("Muerte del task");
+    };
+  }, []);
   return (
     <div>
       <h2>Nombre: {task.name}</h2>

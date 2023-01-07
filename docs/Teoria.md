@@ -97,7 +97,41 @@ const Ejemplo3 = () => {
 ```
 
 # Ciclos de vida
+Son metodos o funciones que se ejecutan en forma automatica en puntos especificos de la vida del componente.
 ## Componentes basados en clases
-## Componentes basados en funciones
+Metodos de ciclo de vida de los componentes basados en clases:
+### componentDidMount
+### componentDidUpdate
+### componentWillUnmount
 
+## Componentes basados en funciones
+En los componentes basados en funciones usamos hooks, mas precisamente el hook useEffect el cual puede englobar los tres metodos de clase anteriores.
+
+Las equivalencias estaran adelante en forma de useEffect.
+
+### componentDidMount
+Usaremos el useEffect sin return y pasandole un array vacio, lo cual hara que ejecute las acciones una vez como minimo y solo ahi. Cada que se renderice el componente hara su snippet de codigo solo una vez.
+```
+useEffect(() => {
+    <Acciones>
+    );
+  }, []);
+```
+
+### componentDidUpdate
+```
+useEffect(() => {
+    <Acciones>
+    );
+  });
+```
+
+### componentWillUnmount
+```
+useEffect(() => {
+  return () => {
+    console.log("Comportamiento cuando el componente va a desaparecer");
+  };
+}, []);
+```
 
