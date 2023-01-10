@@ -289,3 +289,36 @@ Hablamos sobre nuevos hooks y se implementaron ejemplo en la carpeta hooks, useS
 Veremos el ciclo de vida de los componentes y como trabajarlos en componentes de tipo clase y de tipo funciones.
 
 Usamos el hook useEffect para simular los tres estados del ciclo de vida del componente y generamos los archivos de form para login y register.
+
+# Sesion 6
+Le daremos estilos a nuestra app. Para ello agregamos node-sass:
+```
+npm i --save node-sass
+```
+
+Por recomendación debemos evitar usar el "!important" en los estilos y en vez de eso ayudarnos de la especificidad de los estilos.
+
+Si queremos aplicar clases en nuestros archivos en react debemos importar el archivo scss en cuestion y aplicar el estilo usando la etiqueta className en nuestras etiquetas:
+```
+...
+
+import "<path>/ejemplo.scss"
+
+...
+
+<h1 className="claseEjemplo">Ejemplo</h1>
+
+...
+```
+
+En dado caso que querramos crear los estilos dentro de nuestros archivos react debemos crear constantes de tipo objeto y las propiedades seran camel-case:
+```
+const estiloEjemplo = {
+  color: "tomato",
+  fontWeight: "bold",
+}
+
+...
+
+<div className="estiloEjemplo">...</div>
+```

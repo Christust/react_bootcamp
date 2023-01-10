@@ -14,6 +14,10 @@ Esta metodologia es a donde se esta dirigiendo React actualmente. Los componente
 
 # Estructuras de control
 ## Renderizado condicional
+Para el renderizado condicional usaremos operadores ternarios embebiendo javascript usando las llaves:
+```
+{ condicion ? (if) : (else) }
+```
 ## Renderizado en bucle
 
 # Hooks
