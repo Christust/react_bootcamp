@@ -322,3 +322,8 @@ const estiloEjemplo = {
 
 <div className="estiloEjemplo">...</div>
 ```
+
+# Sesion 7
+Aqui aplicamos la funcion "map" de los array para hacer renderizado de una lista de elementos.
+
+# Sesion 8

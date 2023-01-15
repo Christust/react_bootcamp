@@ -1,12 +1,13 @@
 import logo from "./logo.svg";
 import "./App.css";
+import TaskList from "../src/components/containers/TaskList";
+import FatherComponent from "./components/containers/FatherComponent";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-      </header>
+      {/* <TaskList></TaskList> */}
+      <FatherComponent></FatherComponent>
     </div>
   );
 }

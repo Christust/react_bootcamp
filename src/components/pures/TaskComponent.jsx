@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { Task } from "../../models/task.class";
+import { LEVELS } from "../../models/levels.enum";
 
 const TaskComponent = ({ task }) => {
   useEffect(() => {
@@ -9,13 +10,41 @@ const TaskComponent = ({ task }) => {
       console.log("Muerte del task");
     };
   }, []);
+
+  function taskLevelBadge() {
+    switch (task.level) {
+      case LEVELS.NORMAL:
+        return <span className="badge bg-primary">{task.level}</span>;
+      case LEVELS.URGENT:
+        return <span className="badge bg-warning">{task.level}</span>;
+      case LEVELS.BLOCKING:
+        return <span className="badge bg-danger">{task.level}</span>;
+      default:
+        break;
+    }
+  }
   return (
-    <div>
-      <h2>Nombre: {task.name}</h2>
-      <h3>Descripción: {task.description}</h3>
-      <h3>Estatus: {task.completed ? "Completada" : "Pendiente"}</h3>
-      <h3>Nivel: {task.level}</h3>
-    </div>
+    <tr className="fw-normal">
+      <th>
+        <span className="ms-2">{task.name}</span>
+      </th>
+      <td className="align-items-center">
+        <span className="ms-2">{task.description}</span>
+      </td>
+      <td className="align-items-center">
+        <span className="ms-2">{taskLevelBadge()}</span>
+      </td>
+      <td className="align-items-center">
+        <span className="ms-2">
+          {task.completed ? (
+            <i className="bi-toggle-on" style={{ color: "green" }}></i>
+          ) : (
+            <i className="bi-toggle-off" style={{ color: "grey" }}></i>
+          )}
+          <i className="bi-trash" style={{ color: "tomato" }}></i>
+        </span>
+      </td>
+    </tr>
   );
 };
 
