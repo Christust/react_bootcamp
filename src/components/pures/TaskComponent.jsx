@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 import { Task } from "../../models/task.class";
 import { LEVELS } from "../../models/levels.enum";
 
-const TaskComponent = ({ task }) => {
+const TaskComponent = ({ task, complete, remove }) => {
   useEffect(() => {
-    console.log("Renderiza Task");
+    console.log("Renderizado del task");
     return () => {
       console.log("Muerte del task");
     };
@@ -37,11 +37,23 @@ const TaskComponent = ({ task }) => {
       <td className="align-items-center">
         <span className="ms-2">
           {task.completed ? (
-            <i className="bi-toggle-on" style={{ color: "green" }}></i>
+            <i
+              onClick={() => complete(task)}
+              className="bi-toggle-on"
+              style={{ color: "green" }}
+            ></i>
           ) : (
-            <i className="bi-toggle-off" style={{ color: "grey" }}></i>
+            <i
+              onClick={() => complete(task)}
+              className="bi-toggle-off"
+              style={{ color: "grey" }}
+            ></i>
           )}
-          <i className="bi-trash" style={{ color: "tomato" }}></i>
+          <i
+            onClick={() => remove(task)}
+            className="bi-trash"
+            style={{ color: "tomato" }}
+          ></i>
         </span>
       </td>
     </tr>
@@ -49,7 +61,9 @@ const TaskComponent = ({ task }) => {
 };
 
 TaskComponent.propTypes = {
-  task: PropTypes.instanceOf(Task),
+  task: PropTypes.instanceOf(Task).isRequired,
+  complete: PropTypes.func.isRequired,
+  remove: PropTypes.func.isRequired,
 };
 
 export default TaskComponent;
