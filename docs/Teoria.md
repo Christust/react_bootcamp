@@ -18,6 +18,11 @@ Para el renderizado condicional usaremos operadores ternarios embebiendo javascr
 ```
 { condicion ? (if) : (else) }
 ```
+
+React tambien maneja una sintaxis especial para los operadores ternarios la cual puede ser:
+```
+{condition && data returned}
+```
 ## Renderizado en bucle
 
 # Hooks

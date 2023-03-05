@@ -61,6 +61,42 @@ const TaskList = () => {
     setTasks(tempTasks);
   }
 
+  function TaskTable() {
+    return (
+      <table className="col-12">
+        <thead>
+          <tr>
+            <th scope="col">Titulo</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Nivel</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          {/* Iterar sobre una lista de tareas */}
+          {tasks.map((task, index) => {
+            return (
+              <TaskComponent
+                key={index + "keytask"}
+                task={task}
+                complete={completeTask}
+                remove={deleteTask}
+              ></TaskComponent>
+            );
+          })}
+        </tbody>
+      </table>
+    );
+  }
+
+  let tasksTable;
+
+  if (tasks.length > 0) {
+    tasksTable = <TaskTable></TaskTable>;
+  } else {
+    tasksTable = "Sin tareas";
+  }
+
   return (
     <div>
       <div className="col-12">
@@ -73,29 +109,7 @@ const TaskList = () => {
             data-mbd-perfect-scrollbar="true"
             style={{ position: "relative", height: "400px" }}
           >
-            <table className="col-12">
-              <thead>
-                <tr>
-                  <th scope="col">Titulo</th>
-                  <th scope="col">Descripción</th>
-                  <th scope="col">Nivel</th>
-                  <th scope="col">Acciones</th>
-                </tr>
-              </thead>
-              <tbody>
-                {/* Iterar sobre una lista de tareas */}
-                {tasks.map((task, index) => {
-                  return (
-                    <TaskComponent
-                      key={index + "keytask"}
-                      task={task}
-                      complete={completeTask}
-                      remove={deleteTask}
-                    ></TaskComponent>
-                  );
-                })}
-              </tbody>
-            </table>
+            {tasksTable}
           </div>
           <TaskForm add={addTask}></TaskForm>
         </div>
