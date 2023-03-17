@@ -1,12 +1,10 @@
 import "./App.css";
-// import TaskList from "../src/components/containers/TaskList";
-import LoginFormik from "./components/pures/forms/LoginFormik";
+import TaskList from "../src/components/containers/TaskList";
 
 function App() {
   return (
     <div className="App">
-      {/* <TaskList></TaskList> */}
-      <LoginFormik></LoginFormik>
+      <TaskList></TaskList>
     </div>
   );
 }
