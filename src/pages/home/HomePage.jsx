@@ -1,9 +1,14 @@
 import React from "react";
+import { Link, Outlet } from "react-router-dom";
 
 const HomePage = () => {
   return (
     <div>
-      <h1>Home Page</h1>
+      <navbar>
+        <Link to={"/"}>Home</Link>
+        <Link to={"task-list"}>Task List</Link>
+      </navbar>
+      <Outlet></Outlet>
     </div>
   );
 };
